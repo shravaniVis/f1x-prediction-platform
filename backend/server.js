@@ -205,7 +205,7 @@ function getMLPredictions() {
     );
 
     execFile(
-      "py",
+      "python3",
       ["predict.py"],
       {
         cwd: mlServicePath,
