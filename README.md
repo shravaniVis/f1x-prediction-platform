@@ -1,3 +1,10 @@
+## 🌐 Live Demo
+
+Try F1X here:
+
+https://f1x-prediction-platform-1.onrender.com
+
+
 # F1X — AI-Powered F1 Prediction & Trading Platform
 
 F1X is an AI-powered Formula 1 prediction and simulated trading platform that combines machine learning, probabilistic modeling, and race simulation into an interactive dashboard.
