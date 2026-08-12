@@ -204,12 +204,14 @@ function getMLPredictions() {
       "ml-service"
     );
 
+    console.log("ML service path:", mlServicePath);
+
     execFile(
       "python3",
       ["predict.py"],
       {
         cwd: mlServicePath,
-        timeout: 8000,
+        timeout: 15000,
         killSignal: "SIGTERM",
         windowsHide: true
       },
@@ -220,8 +222,28 @@ function getMLPredictions() {
             error.message
           );
 
+          console.log(
+            "ML error code:",
+            error.code
+          );
+
+          console.log(
+            "ML stderr:",
+            stderr
+          );
+
+          console.log(
+            "ML stdout:",
+            stdout
+          );
+
           return reject(error);
         }
+
+        console.log(
+          "ML stdout:",
+          stdout
+        );
 
         try {
           const predictions =
@@ -232,6 +254,11 @@ function getMLPredictions() {
           console.log(
             "Could not parse ML output:",
             stdout
+          );
+
+          console.log(
+            "Parse error:",
+            parseError.message
           );
 
           reject(parseError);
